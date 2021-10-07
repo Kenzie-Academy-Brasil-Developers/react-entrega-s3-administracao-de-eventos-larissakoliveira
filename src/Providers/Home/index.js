@@ -1,32 +1,27 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
-import api from '../../services/api'
-
-import { ProductsDeletar } from "../../productsDeletar";
+//import api from '../../services/api'
 
 const HomeContext = createContext();
 
 export const HomeProvider = ({ children }) => {
 
-    const [products, setProducts] = useState(['teste'])
+    const [products, setProducts] = useState([])
 
     const showProducts = () => {
         axios
-          .get(api)
+          .get('https://api.punkapi.com/v2/beers')
           .then((response) => {
             setProducts(response.data);
-        //     console.log(products);
            })
           .catch((err) => console.log(err))
-        //   console.log(products);
       };
-      //console.log(products);
       useEffect(() => {
         showProducts();
       }, [products]);
 
   return (
-    <HomeContext.Provider value={{ products, ProductsDeletar }}>
+    <HomeContext.Provider value={{ products }}>
       {children}
     </HomeContext.Provider>
   );

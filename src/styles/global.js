@@ -15,24 +15,41 @@ export default createGlobalStyle`
   li, a, ul{
     text-decoration: none;
     list-style: none;
-  }
+  }                                                               
 
   button {
-    cursor: pointer;
-    padding: 5px;
-    color: #ffffff;
+    cursor: pointer;                                                                                                                                                                                                                                          
+    padding: 3px;
+    width: 125px;
+    height: 30px;
+    color: 'black';
     font-weight: bold;
+    border-radius: 8px;
+    margin: 2px;
+  }
+
+  img{
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+  }
+
+  details{
+    cursor: pointer;
   }
 
   button:hover {
     background-color: #FCFCFC;
   }
   
-  h2, h3, h4, h5, p, a, button{
+  h2, h3, h4, h5, p, a, button, details{
   font-family: 'Rokkitt', serif;
   }
   
   h1{
   font-family: 'Akronim', cursive;
+  padding: 10px;
+  color: #9c27b0;
+  font-size: 35px;
   }
 `
