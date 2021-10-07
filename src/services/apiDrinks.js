@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const api = axios.create({
+const apiDrinks = axios.create({
     baseURL: "https://api.punkapi.com/v2/beers",
 });
 
-export default api;
+export default apiDrinks;

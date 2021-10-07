@@ -1,6 +1,6 @@
-import axios from "axios";
-import { createContext, useContext, useEffect, useState } from "react";
-//import api from '../../services/api'
+import apiDrinks from '../../services/apiDrinks'
+import { createContext, useContext, useState } from "react";
+
 
 const HomeContext = createContext();
 
@@ -9,19 +9,15 @@ export const HomeProvider = ({ children }) => {
     const [products, setProducts] = useState([])
 
     const showProducts = () => {
-        axios
-          .get('https://api.punkapi.com/v2/beers')
+      apiDrinks.get()
           .then((response) => {
             setProducts(response.data);
            })
           .catch((err) => console.log(err))
       };
-      useEffect(() => {
-        showProducts();
-      }, [products]);
 
   return (
-    <HomeContext.Provider value={{ products }}>
+    <HomeContext.Provider value={{ products, showProducts}}>
       {children}
     </HomeContext.Provider>
   );
