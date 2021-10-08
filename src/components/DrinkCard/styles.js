@@ -20,4 +20,5 @@ export const Card = styled.div`
         width: 70px;
         height: 220px;
     }
+
     `

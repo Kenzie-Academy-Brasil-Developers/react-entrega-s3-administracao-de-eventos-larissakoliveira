@@ -3,26 +3,29 @@ import Toolbar from "@material-ui/core/Toolbar";
 import MenuItem from "@material-ui/core/MenuItem";
 import kenzieImg from '../../assets/kenzie.jpg'
 import { useHistory } from "react-router";
+import { useGraduation } from "../../Providers/Graduation";
+import { useGathering } from "../../Providers/Gathering";
+import { useWedding } from "../../Providers/Wedding";
 
 const Menu = () => {
   const history = useHistory();
-
-  //const cart = useSelector((store) => store.cart);
 
   const sendTo = (path) => {
     history.push(path);
   };
 
-  //const totalItemsCart = cart.length === 0 ? '' : cart.length
+  const { drinksWeddingList } = useWedding();
+  const { drinksGatheringList } = useGathering();
+  const { drinksGraduationList } = useGraduation();
 
   return (
     
     <AppBar color='secondary' position="sticky">
       <Toolbar>
         <MenuItem onClick={() => sendTo("/")}><img src={kenzieImg} alt='kenzie'/></MenuItem>
-        <MenuItem onClick={() => sendTo("/casamento")}>Casamento</MenuItem>
-        <MenuItem onClick={() => sendTo("/confraternizacao")}>Confraternização</MenuItem>
-        <MenuItem onClick={() => sendTo("/formatura")}>Formatura</MenuItem>
+        <MenuItem onClick={() => sendTo("/wedding")}>Casamento {drinksWeddingList.length}</MenuItem>
+        <MenuItem onClick={() => sendTo("/gathering")}>Confraternização {drinksGatheringList.length} </MenuItem>
+        <MenuItem onClick={() => sendTo("/graduation")}>Formatura {drinksGraduationList.length} </MenuItem>
     
       </Toolbar>
       

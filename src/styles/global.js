@@ -52,4 +52,9 @@ export default createGlobalStyle`
   color: #9c27b0;
   font-size: 35px;
   }
+
+  svg{
+    width: 10px;
+    height: 10px;
+  }
 `
