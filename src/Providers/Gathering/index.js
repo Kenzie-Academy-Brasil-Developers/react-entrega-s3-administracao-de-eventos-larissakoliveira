@@ -15,8 +15,15 @@ export const GatheringProvider = ({ children }) => {
     return toast.success('Bebida adicionada a CONFRATERNIZAÇÃO')
   }
 
+  const removeDrinkFromGathering = (removedDrink) => {
+    const newListAfterRemovingDrink = drinksGatheringList.filter((drink)=> drink !== removedDrink)
+    setDrinksGatheringList(newListAfterRemovingDrink)
+    localStorage.setItem("drinksGatheringStorage", JSON.stringify(drinksGatheringStorage))
+    return toast.error('Bebida removida')
+  }
+  
   return (
-    <GatheringContext.Provider value={{ drinksGatheringList, setDrinksGatheringList, addDrinksToGathering }}>
+    <GatheringContext.Provider value={{ drinksGatheringList, removeDrinkFromGathering, setDrinksGatheringList, addDrinksToGathering }}>
       {children}
     </GatheringContext.Provider>
   );

@@ -1,6 +1,7 @@
 import Display from "../../components/Display";
 import Menu from "../../components/Menu";
 import { useGathering } from "../../Providers/Gathering";
+import { GatheringBody } from "./styles";
 
 
 const Gathering = () => {
@@ -8,11 +9,10 @@ const Gathering = () => {
   const { drinksGatheringList } = useGathering();
 
   return (
-    <>
+    <GatheringBody>
       <Menu/>
-      {drinksGatheringList > 0 && 
-      <Display drinksGatheringList={drinksGatheringList} />}
-    </>
+      <Display drinksGatheringList={drinksGatheringList} />
+    </GatheringBody>
   );
 };
 

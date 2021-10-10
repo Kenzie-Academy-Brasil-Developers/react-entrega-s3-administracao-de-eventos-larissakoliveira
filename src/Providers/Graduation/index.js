@@ -15,8 +15,15 @@ export const GraduationProvider = ({ children }) => {
     return toast.success('Bebida adicionada a FORMATURA')
   }
 
+  const removeDrinkFromGraduation = (removedDrink) => {
+    const newListAfterRemovingDrink = drinksGraduationList.filter((drink)=> drink !== removedDrink)
+    setDrinksGraduationList(newListAfterRemovingDrink)
+    localStorage.setItem("drinksGraduationList", JSON.stringify(drinksGraduationStorage))
+    return toast.error('Bebida removida')
+  }
+
   return (
-    <GraduationContext.Provider value={{ drinksGraduationList, setDrinksGraduationList, addDrinksToGraduation}}>
+    <GraduationContext.Provider value={{ drinksGraduationList, removeDrinkFromGraduation, setDrinksGraduationList, addDrinksToGraduation}}>
       {children}
     </GraduationContext.Provider>
   );

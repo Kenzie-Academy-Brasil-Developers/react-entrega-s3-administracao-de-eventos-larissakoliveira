@@ -22,21 +22,24 @@ const useStyles = makeStyles({
   },
 });
 
-const DrinkCard = ({ drink }) => {
+const DrinkCard = ({ drink, type }) => {
   const classes = useStyles();
 
-  const { addDrinksToWedding } = useWedding();
+  const { addDrinksToWedding, removeDrinkFromWedding } = useWedding();
   const { addDrinksToGraduation } = useGraduation();
   const { addDrinksToGathering } = useGathering();
 
   return (
+    
     <Card>
       <img src={drink.image_url} alt={drink.name} />
+      <h3>{drink.name}</h3>
       <h3>Fabricação: {drink.first_brewed}</h3>
       <details>{drink.description}</details>
-      <h3>
-        Volume: {drink.volume.value} {drink.volume.unit}
-      </h3>
+      <h3>Volume: {drink.volume.value} {drink.volume.unit}</h3>
+      
+        {type === 'events' ?
+        <>
       <Button
         onClick={() => addDrinksToWedding(drink)}
         className={classes.root}
@@ -55,6 +58,15 @@ const DrinkCard = ({ drink }) => {
       >
         + Formatura
       </Button>
+        </>
+      :
+      
+      <Button
+        onClick={() => removeDrinkFromWedding(drink)}
+        className={classes.root}
+      >
+        Remover
+      </Button>}
     </Card>
   );
 };

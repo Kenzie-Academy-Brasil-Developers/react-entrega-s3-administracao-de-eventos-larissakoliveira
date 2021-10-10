@@ -11,8 +11,7 @@ const Graduation = () => {
   return (
     <GraduationBody>
       <Menu/>
-      {drinksGraduationList > 0 &&
-      <Display drinksGraduationList={drinksGraduationList}/>}
+      <Display drinksGraduationList={drinksGraduationList}/>
     </GraduationBody>
   );
 };
