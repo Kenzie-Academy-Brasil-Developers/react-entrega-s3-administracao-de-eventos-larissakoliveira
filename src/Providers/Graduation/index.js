@@ -18,7 +18,7 @@ export const GraduationProvider = ({ children }) => {
   const removeDrinkFromGraduation = (removedDrink) => {
     const newListAfterRemovingDrink = drinksGraduationList.filter((drink)=> drink !== removedDrink)
     setDrinksGraduationList(newListAfterRemovingDrink)
-    localStorage.setItem("drinksGraduationList", JSON.stringify(drinksGraduationStorage))
+    localStorage.setItem("drinksGraduationList", JSON.stringify(newListAfterRemovingDrink))
     return toast.error('Bebida removida')
   }
 

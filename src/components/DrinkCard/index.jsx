@@ -26,8 +26,8 @@ const DrinkCard = ({ drink, type }) => {
   const classes = useStyles();
 
   const { addDrinksToWedding, removeDrinkFromWedding } = useWedding();
-  const { addDrinksToGraduation } = useGraduation();
-  const { addDrinksToGathering } = useGathering();
+  const { addDrinksToGraduation, removeDrinkFromGraduation } = useGraduation();
+  const { addDrinksToGathering, removeDrinkFromGathering } = useGathering();
 
   return (
     
@@ -38,7 +38,8 @@ const DrinkCard = ({ drink, type }) => {
       <details>{drink.description}</details>
       <h3>Volume: {drink.volume.value} {drink.volume.unit}</h3>
       
-        {type === 'events' ?
+
+        {type === 'events' &&
         <>
       <Button
         onClick={() => addDrinksToWedding(drink)}
@@ -59,14 +60,31 @@ const DrinkCard = ({ drink, type }) => {
         + Formatura
       </Button>
         </>
-      :
-      
+}
+      {type === 'wedding' &&
       <Button
         onClick={() => removeDrinkFromWedding(drink)}
         className={classes.root}
       >
         Remover
       </Button>}
+      {type === 'graduation' &&
+      <Button
+        onClick={() => removeDrinkFromGraduation(drink)}
+        className={classes.root}
+      >
+        Remover
+      </Button>}
+      {type === 'gathering' &&
+      <Button
+        onClick={() => removeDrinkFromGathering(drink)}
+        className={classes.root}
+      >
+        Remover
+      </Button>
+
+}
+
     </Card>
   );
 };

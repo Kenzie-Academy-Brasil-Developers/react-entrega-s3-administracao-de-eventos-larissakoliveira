@@ -5,20 +5,20 @@ const WeddingContext = createContext();
 
 export const WeddingProvider = ({ children }) => {
 
-  const [drinksWeddingList, setDrinksWeddingList] = useState([])
-
   const drinksWeddingStorage = JSON.parse(localStorage.getItem("drinksWeddingStorage")) || []
+
+  const [drinksWeddingList, setDrinksWeddingList] = useState(drinksWeddingStorage)
 
   const addDrinksToWedding = (drink) => {
     setDrinksWeddingList([...drinksWeddingList, drink])
-    localStorage.setItem("drinksWeddingStorage", JSON.stringify(drinksWeddingStorage))
+    localStorage.setItem("drinksWeddingStorage", JSON.stringify(drinksWeddingList))
     return toast.success('Bebida adicionada ao CASAMENTO')
   }
 
   const removeDrinkFromWedding = (removedDrink) => {
     const newListAfterRemovingDrink = drinksWeddingList.filter((drink)=> drink !== removedDrink)
     setDrinksWeddingList(newListAfterRemovingDrink)
-    localStorage.setItem("drinksWeddingStorage", JSON.stringify(drinksWeddingStorage))
+    localStorage.setItem("drinksWeddingStorage", JSON.stringify(newListAfterRemovingDrink))
     return toast.error('Bebida removida')
   }
 

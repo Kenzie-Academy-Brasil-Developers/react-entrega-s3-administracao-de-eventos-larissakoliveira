@@ -13,15 +13,15 @@ const Display = ({products, drinksWeddingList, drinksGraduationList, drinksGathe
     ))}
       {drinksWeddingList &&
     drinksWeddingList.map((drink)=> (
-      <DrinkCard drink={drink}key={drink.id}/>
+      <DrinkCard type='wedding' drink={drink}key={drink.id}/>
     ))}
     {drinksGraduationList &&
     drinksGraduationList.map((drink)=> (
-      <DrinkCard drink={drink}key={drink.id}/>
+      <DrinkCard type='graduation' drink={drink}key={drink.id}/>
     ))}
     {drinksGatheringList &&
     drinksGatheringList.map((drink)=> (
-      <DrinkCard drink={drink}key={drink.id}/>
+      <DrinkCard type='gathering' drink={drink}key={drink.id}/>
     ))}
     </Container>
   );

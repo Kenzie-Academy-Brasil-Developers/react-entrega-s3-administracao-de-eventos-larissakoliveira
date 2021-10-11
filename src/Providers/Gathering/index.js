@@ -18,7 +18,7 @@ export const GatheringProvider = ({ children }) => {
   const removeDrinkFromGathering = (removedDrink) => {
     const newListAfterRemovingDrink = drinksGatheringList.filter((drink)=> drink !== removedDrink)
     setDrinksGatheringList(newListAfterRemovingDrink)
-    localStorage.setItem("drinksGatheringStorage", JSON.stringify(drinksGatheringStorage))
+    localStorage.setItem("drinksGatheringStorage", JSON.stringify(newListAfterRemovingDrink))
     return toast.error('Bebida removida')
   }
   
