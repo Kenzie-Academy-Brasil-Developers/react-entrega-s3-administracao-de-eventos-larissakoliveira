@@ -9,12 +9,13 @@ export default createGlobalStyle`
   }
 
   body, input, button {
-    font: 14px Roboto, sans-serif;
+    font: 20px Roboto, sans-serif;
   }
 
   li, a, ul{
     text-decoration: none;
     list-style: none;
+    font-size: 35px;
   }                                                               
 
   button {
