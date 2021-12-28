@@ -11,6 +11,7 @@ export const HomeProvider = ({ children }) => {
     const showProducts = () => {
       apiDrinks.get()
           .then((response) => {
+            console.log(response)
             setProducts(response.data);
            })
           .catch((err) => console.log(err))
